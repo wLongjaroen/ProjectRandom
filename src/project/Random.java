@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package project;
 
 import java.util.Scanner;
@@ -13,12 +12,22 @@ import java.util.Scanner;
  * @author Administrator
  */
 public class Random {
-    
+
     public int length;
     public int amount;
     public int type;
-    
-    public void Input(){
+
+    public Random() {
+    }
+
+    // This constructor is made for GUI
+    public Random(int length, int amount, int type) {
+        this.length = length;
+        this.amount = amount;
+        this.type = type;
+    }
+
+    public void Input() {
         Scanner scan = new Scanner(System.in);
         boolean okay = true;
         while (okay) {
@@ -48,19 +57,20 @@ public class Random {
         } while (true);
         this.compilePass();
     }
-    public void compilePass(){
+
+    public void compilePass() {
         GenRandom gr = new GenRandom(amount);
-        for(int count = 0;count < amount ;count++){
-            for(int l = 0;l < length;l++){
-                if(type == 1){
+        for (int count = 0; count < amount; count++) {
+            for (int l = 0; l < length; l++) {
+                if (type == 1) {
                     gr.randomChar(count);
-                }else if(type == 2){
+                } else if (type == 2) {
                     gr.randomNo(count);
-                }else{
+                } else {
                     int r = (int) (Math.random() * 10) % 2;
-                    if(r == 0){
+                    if (r == 0) {
                         gr.randomChar(count);
-                    }else{
+                    } else {
                         gr.randomNo(count);
                     }
                 }
@@ -68,4 +78,27 @@ public class Random {
         }
         gr.output(amount);
     }
+
+    // This method are made for GUI
+    public String[] compilePassForGUI() {
+        GenRandom gr = new GenRandom(amount);
+        for (int count = 0; count < amount; count++) {
+            for (int l = 0; l < length; l++) {
+                if (type == 1) {
+                    gr.randomChar(count);
+                } else if (type == 2) {
+                    gr.randomNo(count);
+                } else {
+                    int r = (int) (Math.random() * 10) % 2;
+                    if (r == 0) {
+                        gr.randomChar(count);
+                    } else {
+                        gr.randomNo(count);
+                    }
+                }
+            }
+        }
+        return gr.pass;
+    }
+
 }
