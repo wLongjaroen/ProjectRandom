@@ -17,10 +17,10 @@ public class Random {
     public int amount;
     public int type;
 
-    public Random() {
+    Random() {
     }
 
-    // This constructor is made for GUI
+    // This constructor for GUI
     public Random(int length, int amount, int type) {
         this.length = length;
         this.amount = amount;
@@ -79,7 +79,7 @@ public class Random {
         gr.output(amount);
     }
 
-    // This method are made for GUI
+    // This method for GUI
     public String[] compilePassForGUI() {
         GenRandom gr = new GenRandom(amount);
         for (int count = 0; count < amount; count++) {
@@ -100,5 +100,4 @@ public class Random {
         }
         return gr.pass;
     }
-
 }

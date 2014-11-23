@@ -47,9 +47,10 @@ public class Option_2_Frame extends javax.swing.JFrame {
         Label1 = new javax.swing.JLabel();
         Label2 = new javax.swing.JLabel();
         nKey = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        saveButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("การสร้างรหัสจากการสุ่ม");
 
         Label3.setText("Number of key : ");
 
@@ -90,7 +91,7 @@ public class Option_2_Frame extends javax.swing.JFrame {
 
         Label2.setText("Key type   : ");
 
-        nKey.setText("Enter number of output");
+        nKey.setText("Enter Number For Output");
         nKey.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 nKeyMouseClicked(evt);
@@ -102,10 +103,10 @@ public class Option_2_Frame extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Save to File");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        saveButton.setText("Save to File");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                saveButtonActionPerformed(evt);
             }
         });
 
@@ -137,7 +138,7 @@ public class Option_2_Frame extends javax.swing.JFrame {
                                 .addGap(6, 6, 6)
                                 .addComponent(reButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1)))))
+                                .addComponent(saveButton)))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -161,7 +162,7 @@ public class Option_2_Frame extends javax.swing.JFrame {
                     .addComponent(genButton)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(reButton)
-                        .addComponent(jButton1)))
+                        .addComponent(saveButton)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE))
         );
@@ -172,8 +173,7 @@ public class Option_2_Frame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -233,7 +233,7 @@ public class Option_2_Frame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_nKeyActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         String desOut, outName = "Key";
 
         try {
@@ -262,7 +262,7 @@ public class Option_2_Frame extends javax.swing.JFrame {
                 this.outTextArea.setText(null);
             }
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_saveButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -304,13 +304,13 @@ public class Option_2_Frame extends javax.swing.JFrame {
     private javax.swing.JLabel Label2;
     private javax.swing.JLabel Label3;
     private javax.swing.JButton genButton;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox lengthOption;
     private javax.swing.JTextField nKey;
     private javax.swing.JTextArea outTextArea;
     private javax.swing.JButton reButton;
+    private javax.swing.JButton saveButton;
     private javax.swing.JComboBox typeOption;
     // End of variables declaration//GEN-END:variables
 }

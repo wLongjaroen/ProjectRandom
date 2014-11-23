@@ -173,7 +173,9 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void option1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_option1ActionPerformed
-        JOptionPane.showMessageDialog(this, "Sorry, not support yet.");
+        this.setVisible(false);
+        Option_1_Frame o1 = new Option_1_Frame();
+        o1.setVisible(true);
     }//GEN-LAST:event_option1ActionPerformed
 
     private void option2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_option2ActionPerformed

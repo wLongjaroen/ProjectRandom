@@ -19,6 +19,17 @@ public class NameandID {
     public String Name = "";
     public String ID = "";
 
+    public NameandID() {
+    }
+
+    // This constructor for GUI
+    public NameandID(int length, int amount, String name, String ID) {
+        this.length = length;
+        this.amount = amount;
+        this.Name = name;
+        this.ID = ID;
+    }
+
     public void Input() {
         Scanner scan = new Scanner(System.in);
         boolean okay = true;
@@ -29,6 +40,8 @@ public class NameandID {
             for (String n1 : n) {
                 Name += n1;
             }
+        } else {
+            Name = name;
         }
         System.out.print("Enter ID : ");
         String id = scan.nextLine();
@@ -37,6 +50,8 @@ public class NameandID {
             for (String n1 : n) {
                 ID += n1;
             }
+        } else {
+            ID = id;
         }
         while (okay) {
             System.out.print("Enter length : ");
@@ -49,42 +64,41 @@ public class NameandID {
         }
         System.out.print("Enter amount password : ");
         amount = scan.nextInt();
-        System.out.println("Choose type password : ");
-        System.out.println("1.Character only");
-        System.out.println("2.Number    only");
-        System.out.println("3.Character and Number");
-
-        do {
-            System.out.print("Do you want type : ");
-            type = scan.nextInt();
-            if (0 < type && type < 4) {
-                break;
-            } else {
-                System.out.println("Please choose type password again.");
-            }
-        } while (true);
         this.compilePass();
     }
 
     public void compilePass() {
-        GenIndex gi = new GenIndex(Name,ID,amount);
-        for(int count = 0;count < amount ;count++){
-            for(int l = 0;l < length;l++){
-                if(type == 1){
+        GenIndex gi = new GenIndex(Name, ID, amount);
+        for (int count = 0; count < amount; count++) {
+            for (int l = 0; l < length; l++) {
+
+                int r = (int) (Math.random() * 10) % 2;
+                if (r == 0) {
                     gi.randomChar(count);
-                }else if(type == 2){
+                } else {
                     gi.randomNo(count);
-                }else{
-                    int r = (int) (Math.random() * 10) % 2;
-                    if(r == 0){
-                        gi.randomChar(count);
-                    }else{
-                        gi.randomNo(count);
-                    }
                 }
+
             }
         }
         gi.output(amount);
     }
 
+    // This method for GUI
+    public String[] compilePassForGUI() {
+        GenIndex gi = new GenIndex(Name, ID, amount);
+        for (int count = 0; count < amount; count++) {
+            for (int l = 0; l < length; l++) {
+
+                int r = (int) (Math.random() * 10) % 2;
+                if (r == 0) {
+                    gi.randomChar(count);
+                } else {
+                    gi.randomNo(count);
+                }
+
+            }
+        }
+        return gi.pass;
+    }
 }
